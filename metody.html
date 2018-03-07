@@ -1,0 +1,267 @@
+<script>
+
+
+var rabbit = {};
+
+rabbit.speak = function(line) {
+  console.log("Krolik mowi: \"" + line + "\"");
+};
+//var line = "cos";
+//console.log("Krolik mowi: \"" + line + "\"");
+
+rabbit.speak("Ja żyję");
+
+function speak(line){
+  console.log(this.type + " krolik mowi: \"" + line + "\"");
+};
+
+var whiteRabbit = {type: "Bialy", speak: speak};
+var fatRabbit = {type: "Gruby", speak: speak};
+
+whiteRabbit.speak("Na moje uszy i wasy ale juz pozno!");
+fatRabbit.speak("Niw pogardzilbym marchewka");
+
+speak.apply(fatRabbit, ["Chrup!"]);
+speak.call({type: "Stary"}, "Ojej");
+
+var empty = {};
+
+console.log(empty.toString);
+console.log(empty.toString());
+
+console.log(Object.getPrototypeOf(isNaN) ==  Function.prototype);
+console.log(Object.getPrototypeOf([]) == Array.prototype);
+
+var protoRabbit = {
+  speak: function(line) {
+    console.log(this.type + " królik mówi: \"" + line + "\"");
+  }
+};
+
+var killerRabbit = Object.create(protoRabbit);
+  killerRabbit.type = "Zabójczy";
+  killerRabbit.speak("ARGHHHHHH!");
+
+
+function Rabbit(type){
+  this.type = type;
+  this.kek = "keks";
+}
+
+var killerRabbit = new Rabbit("Zabójczy");
+  var blackRabbit = new Rabbit("Czarny");
+
+  console.log(blackRabbit.type);
+
+
+  Rabbit.prototype.speak = function(line){
+    console.log(this.type + " królik: \"" + line + "\"");
+  };
+
+  blackRabbit.speak("Zagłada...");
+
+  Rabbit.prototype.teeth = "małe";
+  console.log(killerRabbit.teeth);
+
+  killerRabbit.teeth = "długie, ostre i zbroczone krwią";
+  console.log(killerRabbit.teeth);
+
+  console.log(blackRabbit.teeth);
+  console.log(Rabbit.prototype.teeth);
+
+  console.log(Array.prototype.toString == Object.prototype.toString);
+  console.log([1,2].toString());
+  console.log(Object.prototype.toString.call([1,2]));
+
+  Rabbit.prototype.dance = function(){
+    console.log(this.type + " królik tańczy gigę.");
+  };
+  killerRabbit.dance();
+
+  console.log("-------------------------------------------");
+
+
+function arrayToList(array){
+  var len =array.length;
+  var list = null;
+  for(var n = len-1; n > -1; n--){
+    list = {value: array[n], rest: list};
+  }
+  return list;
+}
+
+// function listToArray(list){
+//   var array = [];
+//   var tempList = list;
+//   var flag = true;
+//   var i = 0;
+//   while(flag){
+//     array[i] = tempList.value;
+//     if(tempList.rest == null){
+//       flag = false;
+//     }else {
+//       i++;
+//       tempList = tempList.rest;
+//     }
+//   }
+//   return array;
+// }
+
+function listToArray(list){
+  var array = [];
+  for(var node = list; node; node=node.rest){
+    array.push(node.value);
+  }
+  return array;
+}
+
+function prepend(element, list){
+  return {value: element, rest: list};
+}
+
+function yth(list, element){
+  // console.log(list);
+  if(list.value == element){
+    return list;
+  }
+  else return yth(list.rest, element);
+}
+
+function nth(list, element){
+  if(!list) return undefined;
+  if(element == 0){
+    return list.value;
+  }else{
+    return nth(list.rest, element-1);
+  }
+}
+
+
+// console.log(arrayToList([10, 20]));
+// // // → {value: 10, rest: {value: 20, rest: null}}
+// console.log(listToArray(arrayToList([10, 20, 30])));
+// // // → [10, 20, 30]
+// console.log(prepend(10, prepend(20, null)));
+// // → {value: 10, rest: {value: 20, rest: null}}
+console.log(nth(arrayToList([10, 20, 30]), 2));
+// // → 20
+
+
+function deepEqual(x,y){
+  if(x === y) return true;
+  // if(x == null || x != 'object' || y == null || y != 'object') return false;
+
+  var keysX = Object.keys(x),
+      keysY = Object.keys(y);
+
+  // if(keysX.length != keysY.length) return false;
+
+  for(var n in x){
+    for(var m in y){
+      if(n == m){
+        if(x[n] != y[m]) return false;
+      }
+    }
+  }
+  return true;
+}
+
+let obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, obj));
+// → true
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// → false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+// → true
+
+function comp(array1, array2){
+  //your code here
+  if(array1 == [] || array2 == []) return false;
+  if(array1 == null || array2 == null) return false;
+  if(array1.length != array2.length) return false;
+
+//   if(!Array.isArray(array1) && !array1.length){
+//   return false;
+// }
+//  if(!Array.isArray(array2) && !array2.length){
+//   return false;
+// }
+
+  var length = array1.length;
+
+  for(var n = 0; n < length; n++){
+    if(!array2.includes(array1[n] * array1[n])) return false;
+  }
+  return true;
+
+}
+
+a1 = [2, 46, 40, 18, 0, 9, 40];
+a2 = [4, 2116, 1600, 324, 0, 81, 1601];
+
+console.log(comp(a1,a2));
+
+
+//--------------------------------------------------------------------------------\
+console.log("-----------------------------------------------");
+
+setTimeout(function(){
+  alert("hi");
+}, 0);
+
+var undefined = 9;
+console.log(typeof undefined);
+console.log(undefined);
+console.log(typeof null);
+console.log(null == undefined);
+console.log(null === undefined);
+console.log("----------------");
+var test1 = { a: 1 };
+var test2 = { a: 1 };
+console.log(Object.is(test1, test2));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

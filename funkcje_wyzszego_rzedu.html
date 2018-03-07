@@ -1,0 +1,94 @@
+<script>
+
+function forEach(array, action){
+    for(var i = 0; i < array.length; i++){
+      action(array[i]);
+    }
+  }
+  
+  var numbers = [1,2,3,4,5], sum = 0;
+  
+  forEach(numbers, function(number){
+    sum += number;
+  })
+  console.log(sum);
+
+  function unless(test, then){
+    if(!test) then();
+  }
+
+  function repeat(tries, action){
+    for(var i = 0; i < tries; i++) action(i);
+  }
+
+  repeat(3, function(val){
+    unless(val%2, function(){
+      console.log(val, " jest parzysta/e");
+    })
+  });
+
+// function init(){
+//   var name = "mozilla";
+
+//   function displayname(){
+//     alert(name);
+//   }
+//   return displayname;
+// }
+
+
+// var myFunc = init();
+
+// myFunc();
+
+function noisy(f){
+  return function(arg){
+    console.log("wywołanie z ", arg);
+    var val = f(arg);
+    console.log("wowołano z ", arg, " - otrzymano ", val);
+    return val;
+  }
+}
+
+noisy(Boolean)(0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
