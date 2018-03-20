@@ -1,0 +1,49 @@
+<script>
+
+    function wrapValue(n){
+        var localValue = n;
+        return function() { return localValue};
+    }
+
+    var varOne = wrapValue(123);
+
+    // console.log(varOne());
+    // console.dir(varOne);
+
+    //revealing module pattern
+
+var counter = (f.display)unction() {
+
+  var privateCounter = 0;
+
+  function changeBy(val) {
+    privateCounter += val;
+  }
+
+  var increment = function(){
+      changeBy(1);
+    },
+    decrement = function() {
+        changeBy(-1);
+    },
+    value = function(){
+        return privateCounter;
+    };
+
+  return {
+    increment: increment,
+    decrement: decrement,
+    value: value
+  };
+})();
+
+console.log(counter.value());
+// console.log(counter.privateCounter);
+counter.increment();
+counter.increment();
+console.log(counter.value());
+counter.decrement();
+console.log(counter.value());
+
+
+</script>

@@ -1,0 +1,84 @@
+<script>
+
+// function	asyncJeden	(sukcesCallback,	bladCallback)	{
+// 		if	(true)	{
+//             console.log('jestem w F1');
+// 				sukcesCallback();				
+// 		}	else	{
+// 				bladCallback();
+// 		}
+// }
+
+// function	asyncDwa	(sukcesCallback,	bladCallback)	{
+// 		if	(true)	{
+//             console.log('jestem w F2');
+// 				sukcesCallback();				
+// 		}	else	{
+// 				bladCallback();
+// 		}
+// }
+
+// function	asyncTrzy	(sukcesCallback,	bladCallback)	{
+// 		if	(true)	{
+//             console.log('jestem w F3');
+// 				sukcesCallback();				
+// 		}	else	{
+// 				bladCallback();
+// 		}
+// }
+
+
+// asyncJeden(function(){
+//     asyncDwa(function(){
+//         asyncTrzy(function(){
+//             console.log('zrobione');
+//         }, function(){});
+//     }, function() {});
+// }, function() {});
+
+//rozwiazanie z promisami
+
+function asyncJedenP() {
+    return new Promise(function(resolve, reject){
+        if(true){
+            resolve();
+        } else {
+            reject();
+        }
+    });
+}
+
+function asyncDwaP() {
+    return new Promise(function(resolve, reject){
+        if(true){
+            resolve();
+        } else {
+            reject();
+        }
+    });
+}
+function asyncTrzyP() {
+    return new Promise(function(resolve, reject){
+        if(true){
+            resolve();
+        } else {
+            reject();
+        }
+    });
+}
+
+asyncJedenP()
+    .then(asyncDwaP)
+    .then(asyncTrzyP)
+    .then(function(){
+        console.log('wszystko gotowe!');
+    })
+    .fail(function(){
+        //bledy
+    });
+
+
+
+
+
+</script>

@@ -1,0 +1,22 @@
+<script>
+
+    var objA = { one: 1, two: 2, three: 3};
+    var objB = { one: 1, two: 2, three: 4};
+
+
+    function isEqual(a,b){
+        var aProps = Object.getOwnPropertyNames(a);
+        var bProps = Object.getOwnPropertyNames(b);
+
+        if(aProps.length != bProps.length) return false;
+
+        for(var key in a){
+            if(a[key] !== b[key]) return false
+        }
+        return true;
+    }
+
+    console.log(isEqual(objA,objB));
+
+
+</script>

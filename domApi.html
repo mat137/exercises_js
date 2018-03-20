@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="www.google.com" class="foo bar" id="glink" data-foo="1">
+            <h1>Google</h1>
+    </a>
+    
+    <button id="counter">Click me!</button>
+    <input id="name">
+
+    <h1>Przykłady</h1>
+
+    <ul id="list1">
+        <li>Element listy 1.1</li>
+        <li>Element listy 1.2</li>
+        <li>Element listy 1.3</li>
+        <li>Element listy 1.4</li>
+        <li>Element listy 1.5</li>
+    </ul>
+    <ul id="list2">
+            <li>Element listy 2.1</li>
+            <li>Element listy 2.2</li>
+            <li>Element listy 2.3</li>
+    </ul>
+    <ul id="list">
+            <li>Element listy 1</li>
+            <li>Element listy 2</li>
+            <li>Element listy 3</li>
+            <li>Element listy 4</li>
+            <li>Element listy 5</li>
+            <!-- komentarz -->
+    </ul>
+    
+    <script>
+
+        var link = document.querySelector('#glink');
+        var button = document.querySelector('#counter');
+        var input = document.querySelector('#name');
+
+        var div = document.createElement('div');
+        var img = new Image();
+        var text = document.createTextNode("tresc");
+
+        var list1 = document.getElementById('list1'),
+            list2 = document.getElementById('list2');
+
+        var li = document.createElement("li");
+    
+        li.appendChild(text);
+
+        //list1.appendChild(li);
+        // list1.insertBefore(li, list1.querySelector("li:nth-child(2)"));
+        //list1.appendChild(list1.querySelector('li:first-child'));
+        //list2.removeChild(list2.querySelector('li:last-child'));
+        list1.replaceChild(li, list1.querySelector(':last-child'));
+
+
+        var list = document.querySelector('#list');
+        var dc = document.createDocumentFragment();
+
+        for(var i = 0; i <=5; i++){
+
+            var li = document.createElement("li");
+
+            li.appendChild(document.createTextNode("Nowy element listy " + i));
+
+            dc.appendChild(li);
+
+        }
+        list.appendChild(dc);
+
+        var children = list.childNodes;
+        var elementChildren = list.children;
+
+        var first = list.firstChild;
+        var firstElement = list.firstElementChild;
+
+        var last = list.lastChild;
+        var lastElement = list.lastElementChild;
+
+        var second = firstElement.nextSibling;
+        var secondElement = firstElement.nextElementSibling;
+
+        var lastButOne = lastElement.previousSibling;
+        var lastButOneElement = lastElement.previousElementSibling;
+
+        var parent = second.parentNode;
+
+        secondElement.parentNode.removeChild(secondElement);
+    
+        // console.log(children);
+        
+    
+    console.log("-----------METODY-----------");
+    //metody
+        console.log(link);
+        console.log(button);
+    
+        console.log(link.className);
+        console.log(link.id);
+        console.log(link.innerHTML);
+        console.log(link.outerHTML);
+        console.log(link.innerText);
+        console.log(link.tagName);
+        console.log(link.dataset);
+    
+        link.classList.add('brum');
+        console.log(link.classList);
+        link.classList.remove("brum");
+        link.classList.toggle("brum");
+        console.log(link.classList);
+        link.classList.toggle("brum");
+        console.log(link.classList);
+    
+        console.log(link.className);
+    
+        console.log(link.hasAttribute("href"));
+        console.log(link.getAttribute("href"));
+
+        link.setAttribute("href", "http://yahoo.com");
+        console.log(link.getAttribute("href"));
+    
+        link.style.color = "orange";
+
+        button.setAttribute("disabled", true);
+        button.removeAttribute("disabled");
+
+        var imgg = document.createElement("img");
+        imgg.src = "http://i.imgur.com/P2zuQvY.png";
+
+        document.body.appendChild(imgg);
+    
+        var attrs = imgg.attributes;
+
+        console.log(link.classList.contains('foo'));
+    
+    
+    
+    
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

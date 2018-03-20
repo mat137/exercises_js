@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Obiekt event i target</title>
+</head>
+<body>
+
+    <h1>Obiekt event i target</h1>
+
+    <button id="btn">Kliknij mnie</button>
+
+    <br><br>
+
+    <button>Kliknij mnie</button>
+
+    <br><br>
+
+    <a href="#">Link</a><br>
+    <a href="#">Link</a><br>
+    <a href="#">Link</a><br>
+    <a href="#">Link</a><br>
+    <a href="#">Link</a><br>
+    <a href="#">Link</a><br>
+    <a href="#">Link</a><br>
+    <a href="#">Link</a><br>
+
+<script>
+
+var btn = document.querySelector('#btn');
+
+btn.onclick = function(e) {
+    console.log(this);
+    console.log(e.target);
+
+    this.setAttribute("disabled", true);
+};
+
+document.body.onclick = function(e){
+    console.log(this);
+    console.log(e.target);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

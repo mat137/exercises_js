@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        form div {
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>getComputedStyle()</h1>
+
+    <form action="#" id="myForm">
+        <div>
+            <input type="text" name="firstName" value="Jan">
+        </div>
+
+        <div>
+            <input type="text" name="lastName">
+        </div>
+
+        <div>
+            <select name="subject">
+                <option value="pytanie">Pytanie</option>
+                <option value="prosba">Prosba</option>
+                <option value="zgloszenie">Zgloszenie</option>
+            </select>
+        </div>
+
+        <div>
+            <textarea name="message"></textarea>
+        </div>
+
+        <div>
+            <label>Zapamietaj mnie</label>
+            <input type="checkbox" name="remember" value="1">
+        </div>
+
+        <div>
+            <input type="submit" value="Wyslij">
+        </div>
+    </form>
+
+
+    <script>
+
+        var form = document.getElementById("myForm");
+        var names = document.querySelectorAll('input[name]');
+        var h1 = document.querySelector('h1');
+
+        form.lastName.value = 'Kowalski';
+
+        form.message.value = "Tresc";
+
+        form.subject.length = 2;
+
+        console.log(form.remember.checked);
+
+        // console.log(form.querySelector('input[type="submit"]').value = 'asd');
+
+
+        console.log(window.getComputedStyle(h1));
+
+
+
+
+    </script>
+
+</body>
+</html>

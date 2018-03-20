@@ -1,0 +1,30 @@
+<script>
+
+// "use strict";
+
+const profile = {
+  firstName: 'as',
+  lastName: 'sa',
+  setName: function(fullname){
+    let splitName = (name) => {
+      let array = name.split(' ');
+      this.firstName = array[0];
+      this.lastName = array[1];
+    }
+    
+    splitName(fullname);
+  }
+}
+
+
+
+profile.setName('joh doe');
+
+
+console.log(profile.firstName);
+
+// dasss = 5;
+// console.log(dasss);
+
+
+</script>

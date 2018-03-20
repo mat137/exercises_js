@@ -1,0 +1,33 @@
+<script>
+
+    var stewie = {
+        name: 'Stewie Griffin',
+        total: 400,
+        doSth: function(fee) {
+            this.total = this.total - fee;
+            return this.name + ' has ' + this.total + '$';
+        }
+    };
+
+    var gwen = {
+        name: 'Gwen Griffin',
+        total: 1000
+    };
+
+    console.log(stewie.doSth(100));
+    var binded = stewie.doSth.bind(gwen, 100);
+    console.log(binded());
+    console.log(stewie.doSth.call(gwen, 100));
+    console.log(stewie.doSth.apply(gwen, [100]));
+
+    var array = [5, 3, 4, 5, 7, 9, 8, 1];
+
+    function getMax(arr){
+        return Math.max.apply(null, arr);
+    }
+    console.log(getMax(array));
+    console.log(Math.max([1,2,3]));
+
+
+
+</script>

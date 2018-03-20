@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Czym jest bubbling?</title>
+</head>
+<body>
+
+    <h1>Czym jest bubbling?</h1>
+
+    <button id="btn">Kliknij mnie</button>
+
+<script>
+
+    var btn = document.querySelector("#btn");
+    var body = document.body;
+
+    body.addEventListener("click", function(e) {
+        console.log("kliknales w body");   
+    }, true);
+
+    btn.addEventListener("click", function(e){
+
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+
+        console.log("kliknales w przycisk");
+    }, false);
+
+    btn.addEventListener("click", function(e){
+        console.log("znow kliknales w przycisk");
+    }, false);
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

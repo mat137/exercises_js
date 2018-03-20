@@ -1,0 +1,63 @@
+<script>
+
+function getData(type){
+
+    if(!type) throw new Error("Nieprawidlowy typ");
+
+    return {
+        firstName: "Jan",
+        lastName: "Kowalski"
+    };
+}
+
+function searchDb() {
+
+    console.log("Otwieram polaczenie.");
+
+    var data = getData();
+    
+    if(data === null){
+        throw new Error("Brak danych.");
+    }
+
+    console.log("Zamykam polaczenie.");
+
+}
+
+try {
+    searchDb();
+} catch(e){
+    console.log("Tresc bledu: " + e.message);
+} finally {
+    console.log("Zamykam polaczenie.");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
